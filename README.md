@@ -1,4 +1,4 @@
 socket.io-java-emitter
 ======================
 
-socket.io emitter for java
+A Java implementation of socket.io-emitter
