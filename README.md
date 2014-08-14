@@ -5,7 +5,7 @@ socket.io-java-emitter
 
 A Java implementation of socket.io-emitter
 
-This project uses [msgpack-java](https://github.com/msgpack/msgpack-java) and [phpredis](https://github.com/nicolasff/phpredis).
+This project uses [msgpack-java](https://github.com/msgpack/msgpack-java) and [jedis](https://github.com/xetorthio/jedis).
 
 ## Usage
 
