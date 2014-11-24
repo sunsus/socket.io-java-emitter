@@ -14,6 +14,8 @@ import org.json.JSONObject;
 import org.msgpack.MessagePack;
 import org.msgpack.packer.Packer;
 
+import redis.clients.jedis.Jedis;
+
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -182,6 +184,7 @@ public class Emitter {
     byte[] msg = out.toByteArray();
 
     Jedis jedis = null;
+    
     try {  
       jedis = this.redis.getResource();
 		  jedis.publish(this.key.getBytes(Charset.forName("UTF-8")), msg);
