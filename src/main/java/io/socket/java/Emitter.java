@@ -177,11 +177,17 @@ public class Emitter {
 		MessagePack msgpack = new MessagePack();
 		
 		Packer packer = msgpack.createPacker(out);
-        packer.write(packet);
+    packer.write(packet);
         
-        byte[] msg = out.toByteArray();
-        
-		this.redis.getResource().publish(this.key.getBytes(Charset.forName("UTF-8")), msg);
+    byte[] msg = out.toByteArray();
+
+    Jedis jedis = null;
+    try {  
+      jedis = this.redis.getResource();
+		  jedis.publish(this.key.getBytes(Charset.forName("UTF-8")), msg);
+    } finally {
+      if(jedis != null) { this.redis.returnResource(jedis); }
+    }
 		// reset state
 		this.rooms = new ArrayList<String>();
 		this.flags = new HashMap<String,Object>();
