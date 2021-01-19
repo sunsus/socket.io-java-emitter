@@ -22,13 +22,11 @@ public abstract class Packet implements MessagePackable {
 	
 	public Packet() {}
 
-	@Override
 	public void readFrom(Unpacker arg0) throws IOException {
 		throw new UnsupportedOperationException();
 		
 	}
 
-	@Override
 	public void writeTo(Packer packer) throws IOException {
 		packer.writeArrayBegin(3);
 		packer.write("emitter");		
