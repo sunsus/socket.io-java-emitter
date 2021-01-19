@@ -30,8 +30,8 @@ public abstract class Packet implements MessagePackable {
 
 	@Override
 	public void writeTo(Packer packer) throws IOException {
-		packer.writeArrayBegin(2);
-		
+		packer.writeArrayBegin(3);
+		packer.write("emitter");		
 		packer.writeMapBegin(3);
 		packer.write("type");
 		packer.write(this.type);
